@@ -399,5 +399,5 @@ Permite que **dos usuarios** vean/controlen la misma sesión:
 
 ## Recursos adicionales
 - Manual oficial: `man screen`  
-- [Guía rápida de comandos](https://www.gnu.org/software/screen/manual/)  
+- [Guía rápida de comandos](https://www.gnu.org/software/screen/manual/screen.html)  
 - Tutorial interactivo: [CheatSheet de Screen](https://www.gnu.org/software/screen/)  
