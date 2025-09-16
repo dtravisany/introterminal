@@ -88,17 +88,137 @@ Si tenemos más de un directorio podemos ingresar a ese directorio con el comand
 
 		cd ejemplo
 
-### Revisar Archivos
+# VIM
 
+## Objetivo
+Aprender los comandos básicos y esenciales de VIM para poder **navegar, editar, guardar y buscar en archivos de texto** de forma eficiente.
+
+## 1. Iniciar con VIM
+Abrir un archivo nuevo o existente:  
+
+```bash
+vim archivo.txt
+```
+
+ **Ejercicio:**  
+- Abre VIM con `vim prueba.txt`.  
+- Observa que entras en **Normal mode** por defecto.  
+
+---
+
+## 2. Modos de VIM
+- **Normal (N):** Navegar y ejecutar comandos (modo por defecto).  
+- **Insert (I):** Escribir texto.  
+- **Visual (V):** Seleccionar texto.  
+- **Command (:):** Ejecutar comandos.  
+
+ **Ejercicio:**  
+- Pulsa `i` y escribe tu nombre.  
+- Pulsa `ESC` para volver a Normal.  
+- Pulsa `v` y selecciona tu nombre letra por letra.  
+
+---
+
+## 3. Navegación básica
+En **Normal mode**:  
+- `h` → izquierda  
+- `l` → derecha  
+- `j` → abajo  
+- `k` → arriba  
+- `0` → inicio de línea  
+- `$` → final de línea  
+- `gg` → inicio del archivo  
+- `G` → final del archivo  
+
+ **Ejercicio:**  
+- Escribe varias líneas de texto.  
+- Mueve el cursor con `h, j, k, l`.  
+- Salta al inicio con `gg` y al final con `G`.  
+
+---
+
+## 4. Edición básica
+- `i` → insertar antes del cursor  
+- `a` → insertar después del cursor  
+- `o` → nueva línea debajo  
+- `O` → nueva línea encima  
+- `x` → borrar un caracter  
+- `dd` → borrar línea  
+- `yy` → copiar línea  
+- `p` → pegar  
+
+ **Ejercicio:**  
+- Borra una palabra con `x`.  
+- Duplica una línea con `yy` y luego `p`.  
+- Inserta una línea en blanco con `o`.  
+
+---
+
+## 5. Guardar y salir
+En **Command mode (:)**:  
+- `:w` → guardar  
+- `:q` → salir  
+- `:wq` → guardar y salir  
+- `:q!` → salir sin guardar  
+
+ **Ejercicio:**  
+- Escribe algo y guarda con `:w`.  
+- Sal del archivo con `:q`.  
+- Intenta salir sin guardar con `:q!`.  
+
+---
+
+## 6. Buscar y reemplazar
+- `/texto` → buscar hacia abajo  
+- `n` → siguiente coincidencia  
+- `N` → coincidencia anterior  
+- `:%s/viejo/nuevo/g` → reemplazar en todo el archivo  
+
+ **Ejercicio:**  
+- Escribe varias veces la palabra `dato`.  
+- Búscala con `/dato`.  
+- Reemplázala por `información` con `:%s/dato/información/g`.  
+
+---
+
+## 7. Visual mode
+- `v` → selección por caracteres  
+- `V` → selección por líneas  
+- `Ctrl+v` → selección por bloques  
+
+**Ejercicio:**  
+- Selecciona una línea con `V` y cópiala (`y`).  
+- Selecciona varias líneas con `V` y bórralas (`d`).  
+
+---
+
+## 8. Deshacer y rehacer
+- `u` → deshacer  
+- `Ctrl+r` → rehacer  
+
+**Ejercicio:**  
+- Borra una línea con `dd`.  
+- Usa `u` para recuperarla.  
+- Usa `Ctrl+r` para repetir el borrado.  
+
+---
+
+## Recursos adicionales
+- `vimtutor` (ejecutar en consola).  
+- [Cheatsheet interactivo](https://vim.rtorr.com/).  
+- Juego: [Vim Adventures](https://vim-adventures.com/).  
+
+
+# Revisar Archivos
 
 Podemos mirar (Read Only) archivos con varios comandos como por ejemplo `more` ([man more](https://linux.die.net/man/1/more)):
 
 
-		more secuencia.fna
+		more prueba.txt
 
 También está el comando `less` ([man less](https://linux.die.net/man/1/less)):
 
-		less secuencia.fna
+		less prueba.txt
 
 
 ¿Hay diferencias?
@@ -106,7 +226,7 @@ También está el comando `less` ([man less](https://linux.die.net/man/1/less)):
 Otro comando es `cat` ([man cat](https://linux.die.net/man/1/cat)):
 
 
-		cat secuencia.fna
+		cat prueba.txt
 
 > :warning: **NOTA** `cat` es utilizado para concatenar archivos.
 
@@ -117,22 +237,22 @@ Otro comando es `cat` ([man cat](https://linux.die.net/man/1/cat)):
 
 Probemos con el siguiente comando `head`:
 
-		head secuencia.fna
+		head prueba.txt
 
 o con el comando `tail`:
 
-		tail secuencia.fna
+		tail prueba.txt
 
 Saber el número de palabras:
 
-		wc secuencia.fna
+		wc prueba.txt
 
 Saber el número de lineas:
 
-		wc -l secuencia.fna
+		wc -l prueba.txt
 
 
-### Manual
+# Manual
 
 La mayoria de las aplicaciones en Unix tienen una página en el manual de linux `man`, incluso el comando man tiene us propia página en el manual.
 
@@ -149,181 +269,135 @@ Por ejemplo veamos la página del manual para el comando `head`
 
 ¿Qué le imprimirá el siguiente comando?:
 
-		head -n 1 secuencia.fna 
-
-
-### Revisión de archivos Parte 2 (Edición)
-
-
-Existen diferentes editores de texto para la terminal, uno de los más poderoso es [vim](https://www.vim.org/).
-
-		vim holamundo.txt
-
-
-Apareceremos en el editor y las teclas de nuestro teclado ahora serán comandos del editor. Para salir del modo comando es necesario apretar la tecla `i`, esta nos llevará al modo -INSERTAR-. Ahora puede insertar texto, escribiremos:
-
-		HOLA MUNDO
-
-Para salir del modo -INSERTAR- y volver al modo comando apretaremos la tecla `Esc`. luego apretaremos la tecla `:`
-y escribiremos:
-
-		wq!
-
-Esto significa write (w) quit (q) and no questions (!).
-
-
-Haremos algunos otros ejemplos.
-
-
-### Revisión de Archivos Parte 3 (Búsqueda de expresiones).
-
-En el caso de que necesitaramos buscar o extraer información desde un archivo, podemos utilizar el comando `grep` ([Globally search for a Regular Expression and Print](https://linux.die.net/man/1/grep)). Primero veremos lo que hace `grep` luego veremos las *expresiones regulares* ([Regular Expressions](https://es.wikipedia.org/wiki/Expresi%C3%B3n_regular)).
-
-Para este caso utilizaremos el archivo [GFF3](https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md) que fue descargado desde [NCBI - GenBank](https://www.ncbi.nlm.nih.gov/genbank/).
-
-		less secuencia.gff3
-
-Veremos que este archivo posee varias columnas y filas, supongamos que queremos capturar las filas que tienen la palabra pseudogene
-
-		grep "pseudogene" secuencia.gff3
-
-Supongamos que ahora queremos contar cuantas lineas/filas tienen la palabra pseudogene. Podemos revisar utilizando man o ejecutando grep --help si es que grep tiene una opción que nos permita realizar este cálculo:
-
-		grep --help
-
-
-Como vemos la opción -c o --count nos permite contar las lineas que cumplen con el patrón de búsqueda:
-
-		grep --count "pseudogene" secuencia.gff3
-
-Ejecutar:
-
-		grep -c "pseudogene" secuencia.gff3
-
-Es diferente?
-
-Es concordante con la información mostrada en NCBI para ese [genoma](https://www.ncbi.nlm.nih.gov/genome/?term=Piscirickettsia%20salmonis)?
-
-
-### PIPES
-
-Una de las funcionalidades más potente de unix es la concatenación de instrucciones, más conocido como pipelines. Supongamos que queremos saber solo los pseudogenes que estan presentes en el cromosoma de la bacteria y no en sus plasmidios.
-
-Podemos utilizar la concatenación de dos grep:
-
-		grep "pseudogene" secuencia.gff3 | grep "NZ_CP011849"
-
-Qué pasó?
-
-Si utilizamos:
-
-		
-		grep -c "pseudogene" secuencia.gff3 | grep "NZ_CP011849"
-
-Cuánto da el resultado?
-
-y si utilizamos:
-
-		
-		grep "pseudogene" secuencia.gff3 | grep -c "NZ_CP011849"
-
-Cuánto da el resultado?
-
-
-Por qué son distintos?, es concordante con lo presentado en NCBI?
-
-
-### Expresiones regulares:
-
-
-Supongamos que ahora queremos contar los genes en el archivo gff que pertenecen al cromosoma, ejecutemos:
-
-
-		grep "gene" secuencia.gff3 | grep -c "NZ_CP011849"
-
-Es concordante con lo presentado en NCBI?.
-
-Qué pasó?
-
-
-Que pasa si ejecutamos:
-
-
-		grep $'\tgene' secuencia.gff3 | grep -c "NZ_CP011849"
-
-Es el mismo resultado que en:
-
-		grep $'\tgene' secuencia.gff3 | grep "NZ_CP011849" | wc -l
-
-
-Por qué?
-
-
-## PARTE II 
-
-
-### Revisión de un archivo FASTQ.
-
-
-
-Los archivos [FASTQ](https://en.wikipedia.org/wiki/FASTQ_format), son archivos de texto que almacenan las secuencias nucleotídicas que provienen de una secuenciación
-y sus valores de calidad correspondientes en formato [ASCII](https://es.wikipedia.org/wiki/ASCII). 
-Actualmente se utiliza el código [ASCII partiendo desde el valor 33](https://support.illumina.com/help/BaseSpace_OLH_009008/Content/Source/Informatics/BS/QualityScoreEncoding_swBS.htm).
-
-La calidad de los archivos FASTQ es el mapeo a un valor entero de la probabilidad de error en la lectura de un nucleótido por parte de la máquina.
-
-Este es el valor [PHRED](https://genome.cshlp.org/content/8/3/186.short)
-
-A continuación podemos ver una tabla de resumen de las calidades Phred y la probabilidad de error:
-
-| Valor Phred| Probabilidad de base errónea | Precisión |
-| ----- | ---- |----|
-| 10 | 1 en 10 | 90% |
-| 20 | 1 en 100 | 99% |
-| 30 | 1 en 1000 | 99.9% |
-| 40 | 1 en 10000 | 99.99% |
-| 50 | 1 en 100000 | 99.999% |
-
-
-Utilizaremos el programa [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/). FastQC nos muestra estadísticas sobre nuestros resultados de secuenciación.
-
-
-Revisemos nuestro archivo con el comando `fastqc`:
-
-
-		fastqc 
-
-
-Ahora revisaremos cada uno de los campos en el siguiente [link](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/):
-
-
-Ahora ejecutaremos `fastqc` sin GUI, entraremos al help:
-
-		fastqc --help
-
-
-Ejecutaremos todo:
-
-		fastqc SRR18080892.fastq
-
-
-Ahora desde nuestro computador abrimos una terminal y nos traemos el informe utilizando SCP:
-
-
-		scp usuario@servidor:ejercicio/SRR18080892_fastqc.zip .  
-
-
-Ahora en su computador extraiga su archivo y veamos el archivo.
-
-
-Cómo explica el problema de la baja de calidad al final de los reads? Hint1: Phasing [Hint2](https://www.nature.com/articles/nbt.1585)
-
-
-------Ejercicio:-------------------
-Es muy importante que para la próxima clase de High Performance Computing, ya sea capaz de saber acceder a un servidor mediante SSH y pueda crear y editar archivos mediante `vi` o `nano`. Además, cuando uno quiere tener estadísticas rápidas de las secuencias biológicas, son muy útiles las expresiones regulares y el comando grep.
-
-Por esto:
-
-1. Vuelva a ejecutar toda el práctico de nuevo hasta que se sienta capaz de dominar la terminal.
-2. Escriba una pequeña reseña sobre usted utilizando `vi` en un archivo llamado APELLIDONOMBRE_VIM.txt (Donde APELLIDO es su apellido y NOMBRE es su nombre).
-3. Escriba la misma reseña sobre usted, pero utilizando `nano` llamado APELLIDONOMBRE_NANO.txt (Donde APELLIDO es su apellido y NOMBRE es su nombre).
+		head -n 1 prueba.txt 
+
+# Comando `screen`
+## Objetivo
+Aprender a usar `screen` en Linux para **gestionar sesiones persistentes**, permitiendo ejecutar procesos en segundo plano, reanudar sesiones y trabajar de manera eficiente en servidores remotos.
+
+---
+
+## 1. ¿Qué es `screen`?
+- `screen` es un **multiplexor de terminal**.  
+- Permite:  
+  - Mantener sesiones activas aunque cierres la terminal.  
+  - Tener múltiples "ventanas" dentro de una sola terminal.  
+  - Compartir sesiones con otros usuarios.  
+
+**Ejercicio:**  
+- Verifica si lo tienes instalado con:  
+  ```bash
+  screen --version
+  ```  
+- Si no está, instálalo (ejemplo en Ubuntu/Debian):  
+  ```bash
+  sudo apt install screen
+  ```
+
+---
+
+## 2. Iniciar una sesión
+- Crear una sesión nueva:  
+  ```bash
+  screen
+  ```
+- Crear una sesión con nombre:  
+  ```bash
+  screen -S nombre_sesion
+  ```
+
+**Ejercicio:**  
+- Crea una sesión llamada `prueba`:  
+  ```bash
+  screen -S prueba
+  ```  
+
+---
+
+## 3. Desconectar y reconectar
+Dentro de una sesión:  
+- **Desconectar** (dejarla en segundo plano):  
+  ```
+  Ctrl+a d
+  ```
+- **Listar sesiones activas**:  
+  ```bash
+  screen -ls
+  ```
+- **Reconectar a una sesión**:  
+  ```bash
+  screen -r nombre_sesion
+  ```
+
+**Ejercicio:**  
+1. Inicia una sesión llamada `tarea`.  
+2. Desconéctala con `Ctrl+a d`.  
+3. Lista las sesiones con `screen -ls`.  
+4. Reconéctala con `screen -r tarea`.  
+
+---
+
+## 4. Múltiples ventanas en una sesión
+Dentro de una sesión:  
+- Crear nueva ventana: `Ctrl+a c`  
+- Cambiar ventana:  
+  - `Ctrl+a n` (siguiente)  
+  - `Ctrl+a p` (anterior)  
+  - `Ctrl+a número` (ej: `Ctrl+a 0`)  
+- Ver lista de ventanas: `Ctrl+a "`  
+
+👉 **Ejercicio:**  
+1. Crea una sesión.  
+2. Abre 3 ventanas (`Ctrl+a c` tres veces).  
+3. Navega entre ellas con `Ctrl+a n` y `Ctrl+a p`.  
+4. Muestra la lista con `Ctrl+a "`.  
+
+---
+
+## 5. Dividir la pantalla
+- Dividir horizontal: `Ctrl+a S`  
+- Dividir vertical: `Ctrl+a |`  
+- Cambiar entre paneles: `Ctrl+a Tab`  
+- Cerrar panel: `Ctrl+a X`  
+
+**Ejercicio:**  
+- Divide la pantalla en dos con `Ctrl+a S`.  
+- Cambia entre paneles con `Ctrl+a Tab`.  
+- Cierra un panel con `Ctrl+a X`.  
+
+---
+
+## 6. Cerrar sesión
+- Escribir `exit` en la ventana → cierra la ventana actual.  
+- Si todas las ventanas cierran → la sesión termina.  
+- También se puede terminar desde fuera con:  
+  ```bash
+  screen -X -S nombre_sesion quit
+  ```
+
+**Ejercicio:**  
+- Cierra una ventana con `exit`.  
+- Luego cierra toda la sesión con el mismo comando.  
+
+---
+
+## 7. Compartir una sesión
+Permite que **dos usuarios** vean/controlen la misma sesión:  
+- Usuario A:  
+  ```bash
+  screen -S compartida
+  ```
+- Usuario B:  
+  ```bash
+  screen -x compartida
+  ```
+
+**Ejercicio (opcional en entorno multiusuario):**  
+- Crea una sesión compartida y conéctate desde otra terminal con `-x`.  
+
+---
+
+## Recursos adicionales
+- Manual oficial: `man screen`  
+- [Guía rápida de comandos](https://www.gnu.org/software/screen/manual/)  
+- Tutorial interactivo: [CheatSheet de Screen](https://www.gnu.org/software/screen/)  
