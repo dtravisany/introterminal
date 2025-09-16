@@ -76,17 +76,25 @@ En linux los directorios se organizan en una Jerarquía, es decir hay un directo
 Recordemos la estructura de directorios en LINUX.
 
 Dentro del servidor podemos ver donde estamos ubicados utilizando `pwd` ([print working directory](https://linux.die.net/man/1/pwd)). 
-
-		pwd
-
+```bash
+pwd
+```
 Para saber el contenido del directorio donde estamos ubicados utilizamos `ls` ([list](https://linux.die.net/man/1/ls))
 
+```bash
+ls
+```
+Crearemos un directorio con su nombre y apellido:
 
-		ls
+```bash
+mkdir nombreApellido
+```
 
 Si tenemos más de un directorio podemos ingresar a ese directorio con el comando `cd` ([change directory](http://linuxcommand.org/lc3_man_pages/cdh.html))
 
-		cd ejemplo
+```bash
+cd nombreApellido
+```
 
 # VIM
 
@@ -303,14 +311,8 @@ Aprender a usar `screen` en Linux para **gestionar sesiones persistentes**, perm
   ```
 - Crear una sesión con nombre:  
   ```bash
-  screen -S nombre_sesion
+  screen -S nombreApellido
   ```
-
-**Ejercicio:**  
-- Crea una sesión llamada `prueba`:  
-  ```bash
-  screen -S prueba
-  ```  
 
 ---
 
@@ -326,14 +328,14 @@ Dentro de una sesión:
   ```
 - **Reconectar a una sesión**:  
   ```bash
-  screen -r nombre_sesion
+  screen -r nombreApellido
   ```
 
 **Ejercicio:**  
-1. Inicia una sesión llamada `tarea`.  
+1. Inicia una sesión llamada `tareaApellido`.  
 2. Desconéctala con `Ctrl+a d`.  
 3. Lista las sesiones con `screen -ls`.  
-4. Reconéctala con `screen -r tarea`.  
+4. Reconéctala con `screen -r tareaApellido`.  
 
 ---
 
@@ -372,7 +374,7 @@ Dentro de una sesión:
 - Si todas las ventanas cierran → la sesión termina.  
 - También se puede terminar desde fuera con:  
   ```bash
-  screen -X -S nombre_sesion quit
+  screen -X -S nombreApellido quit
   ```
 
 **Ejercicio:**  
